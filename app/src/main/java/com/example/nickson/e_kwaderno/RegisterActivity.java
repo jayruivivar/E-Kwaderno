@@ -3,32 +3,37 @@ package com.example.nickson.e_kwaderno;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-    private int SPLASH_TIME_OUT = 1500;
+    private Button __btnSign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_register);
+
+        __btnSign = findViewById(R.id.btnSign_in);
 
         setStatusBarTransparent();
 
-        new Handler().postDelayed(new Runnable() {
+        __btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                Intent homeIntent = new Intent(SplashScreenActivity.this, HomeActivity.class);
-                startActivity(homeIntent);
-                finish();
+            public void onClick(View view) {
+                startMainActivity();
             }
-        }, SPLASH_TIME_OUT);
+        });
+    }
+
+    private void startMainActivity() {
+        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+        finish();
     }
 
     private void setStatusBarTransparent() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,16 +9,12 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="518dp" />
-
-    <LinearLayout
-        android:id="@+id/dotLayout"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"></LinearLayout>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnPrev"
@@ -26,10 +22,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:layout_marginEnd="70dp"
         android:background="@android:color/transparent"
         android:text="Back"
         android:textColor="@color/colorWhite"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/dotLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager" />
 
     <Button
         android:id="@+id/btnNext"
@@ -39,7 +41,12 @@
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
         android:text="Next"
-        android:textColor="@color/colorWhite" />
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/dotLayout"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager" />
 
     <Button
         android:id="@+id/btnSkip"
@@ -47,9 +54,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:layout_marginEnd="70dp"
         android:background="@android:color/transparent"
         android:text="Skip"
-        android:textColor="@color/colorWhite" />
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/dotLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager" />
 
     <Button
         android:id="@+id/btnFinish"
@@ -57,9 +70,33 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginBottom="1dp"
+        android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
         android:text="Finish"
         android:textColor="@color/colorWhite"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/dotLayout"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/dotLayout"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:layout_constraintVertical_bias="0.0"></LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
