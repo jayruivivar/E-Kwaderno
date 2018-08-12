@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity {
+public class GettingStartedActivity extends AppCompatActivity {
 
     private ViewPager __viewPager;
     private LinearLayout __dotLayout;
@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_getting_started);
 
         if (!isFirstTimeStartApp()) {
             startMainActivity();
@@ -189,7 +189,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void startMainActivity() {
         setFirstTimeStartApp(false);
-        startActivity(new Intent(HomeActivity.this, MainActivity.class));
+        startActivity(new Intent(GettingStartedActivity.this, LoginActivity.class));
         finish();
     }
 
